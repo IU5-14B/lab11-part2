@@ -24,4 +24,10 @@ void heapSort(std::vector<int>& arr);
 // Heap sort for characters; sorts arr in ascending (alphabetical) order
 void heapSortChar(std::vector<char>& arr);
 
+// Heap sort with step-by-step output (array-heap representation)
+void heapSortWithSteps(std::vector<int>& arr);
+
+// Heap sort for characters with step-by-step output
+void heapSortCharWithSteps(std::vector<char>& arr);
+
 #endif // SORT_ALGORITHMS_H

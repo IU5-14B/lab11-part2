@@ -1,26 +1,16 @@
-# Ignore object files and binaries
+/plots/
 *.o
 *.obj
 *.exe
 *.out
 *.a
 *.so
-
-# Ignore build directories
 build/
-
-# Ignore results and plots
 results.csv
 plot_*.png
-
-# Python cache
 __pycache__/
-
-# VS Code settings and other editor files
 .vscode/
 *.swp
 *~
 *.log
-
-# Ignore zip archives
 *.zip

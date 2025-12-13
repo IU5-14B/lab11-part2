@@ -1,5 +1,6 @@
 #include "../include/sort_algorithms.h"
 #include <algorithm>
+#include <iostream>
 #include <vector>
 
 // Helper function for merge sort: merge two sorted halves
@@ -120,4 +121,73 @@ void heapSortChar(std::vector<char>& arr) {
         std::swap(arr[0], arr[static_cast<std::size_t>(i)]);
         heapifyChar(arr, static_cast<std::size_t>(i), 0);
     }
+}
+
+// Печать массива (для наглядности)
+static void printIntArray(const std::vector<int>& arr) {
+    for (std::size_t i = 0; i < arr.size(); ++i) {
+        std::cout << arr[i];
+        if (i + 1 != arr.size()) std::cout << " ";
+    }
+    std::cout << "\n";
+}
+
+static void printCharArray(const std::vector<char>& arr) {
+    for (std::size_t i = 0; i < arr.size(); ++i) {
+        std::cout << arr[i];
+        if (i + 1 != arr.size()) std::cout << " ";
+    }
+    std::cout << "\n";
+}
+
+void heapSortWithSteps(std::vector<int>& arr) {
+    std::size_t n = arr.size();
+    if (n <= 1) return;
+
+    std::cout << "Исходный массив: ";
+    printIntArray(arr);
+
+    // 1) Построение max-heap
+    for (long long i = static_cast<long long>(n) / 2 - 1; i >= 0; --i) {
+        heapify(arr, n, static_cast<std::size_t>(i));
+    }
+    std::cout << "После построения пирамиды (max-heap): ";
+    printIntArray(arr);
+
+    // 2) Извлечение элементов
+    for (long long i = static_cast<long long>(n) - 1; i > 0; --i) {
+        std::swap(arr[0], arr[static_cast<std::size_t>(i)]);
+        heapify(arr, static_cast<std::size_t>(i), 0);
+
+        std::cout << "Шаг: вынесли максимум на позицию " << i << ", массив: ";
+        printIntArray(arr);
+    }
+
+    std::cout << "Отсортировано: ";
+    printIntArray(arr);
+}
+
+void heapSortCharWithSteps(std::vector<char>& arr) {
+    std::size_t n = arr.size();
+    if (n <= 1) return;
+
+    std::cout << "Исходный массив: ";
+    printCharArray(arr);
+
+    for (long long i = static_cast<long long>(n) / 2 - 1; i >= 0; --i) {
+        heapifyChar(arr, n, static_cast<std::size_t>(i));
+    }
+    std::cout << "После построения пирамиды (max-heap): ";
+    printCharArray(arr);
+
+    for (long long i = static_cast<long long>(n) - 1; i > 0; --i) {
+        std::swap(arr[0], arr[static_cast<std::size_t>(i)]);
+        heapifyChar(arr, static_cast<std::size_t>(i), 0);
+
+        std::cout << "Шаг: вынесли максимум на позицию " << i << ", массив: ";
+        printCharArray(arr);
+    }
+
+    std::cout << "Отсортировано: ";
+    printCharArray(arr);
 }

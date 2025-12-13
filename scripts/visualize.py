@@ -55,9 +55,9 @@ def plot_distributions(data, output_dir):
             ns = [p[0] for p in points]
             times = [p[1] for p in points]
             plt.plot(ns, times, marker='o', label=alg)
-        plt.xlabel('Array size (n)')
-        plt.ylabel('Time (ms)')
-        plt.title(f'Sorting performance on {dist} data')
+        plt.xlabel('Размер массива n')
+        plt.ylabel('Время (мс)')
+        plt.title(f'Сравнение сортировок: {dist}')
         plt.legend()
         plt.grid(True)
         # Save using distribution name
@@ -76,7 +76,8 @@ def main():
         print(f'Error: {csv_path} does not exist')
         sys.exit(1)
     data = load_results(csv_path)
-    output_dir = os.path.dirname(os.path.abspath(csv_path))
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(csv_path)), 'plots')
+    os.makedirs(output_dir, exist_ok=True)
     plot_distributions(data, output_dir)
 
 
