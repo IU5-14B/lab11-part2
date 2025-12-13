@@ -27,7 +27,7 @@ lab11/
 Скомпилировать и запустить программу можно следующим образом:
 
 ```sh
- rm -rf build && cmake -B build && cmake --build build && ./build/lab11 && python3 scripts/visualize.py results.csv
+ rm -rf build && rm -rf plots && cmake -B build && cmake --build build && ./build/lab11 && python3 scripts/visualize.py results.csv
 ```
 ## Примечания
 
