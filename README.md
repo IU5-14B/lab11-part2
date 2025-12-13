@@ -27,15 +27,7 @@ lab11/
 Скомпилировать и запустить программу можно следующим образом:
 
 ```sh
-# Перейдите в каталог проекта
-cd lab11
-
-# Запустите программу
-./lab11
-
-# После завершения работы будет создан файл results.csv с результатами измерений
-# Для построения графиков установите matplotlib (pip install matplotlib) и выполните:
-python3 scripts/visualize.py results.csv
+ rm -rf build && cmake -B build && cmake --build build && ./build/lab11 && python3 scripts/visualize.py results.csv
 ```
 ## Примечания
 
